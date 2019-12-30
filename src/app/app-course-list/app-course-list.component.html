@@ -1,0 +1,9 @@
+<div class="container">
+    <app-course-filter (filterChange)="updateFilters($event)"></app-course-filter>
+    <div class="card-deck mb-3 text-center">
+        <app-app-course *ngFor="let course of (courses | filterPipe : courseFilter)" [course]="course" (notify)="deleteCourse(course)" (review)="setCourseReview($event)">
+
+        </app-app-course>
+    </div>
+    <app-add-course (add)="addCourse($event)"></app-add-course>
+</div>

@@ -1,0 +1,12 @@
+<form [formGroup]="modelForm">
+    <label>name:</label><input class="form-control" name="name" formControlName="name">
+    <label>description:</label><input class="form-control" name="description" formControlName="description">
+    <label>rating:</label><input class="form-control"  name="rating" formControlName="rating">
+    <label>imageURL:</label><input class="form-control"  name="imageURL" formControlName="imageURL">
+    <label>semester:</label><input class="form-control"  name="semester" formControlName="semester">
+    <label>studentMax:</label><input class="form-control"  name="studentMax" formControlName="studentMax">
+    <label>type:</label><input class="form-control"  name="type" formControlName="type">
+
+    <button type="submit" (click)="addCourse()">Send</button>
+
+</form>
