@@ -4,10 +4,38 @@
   <meta charset="utf-8">
   <title>ProjektKursy</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="kursy">
+  <meta name="author" content="Karol Hamielec">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
 </head>
 <body>
+
   <app-root></app-root>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDj4xWRzj6tfqLEqOHT8IIF33wc9dMsrz0",
+    authDomain: "projekt-kursy.firebaseapp.com",
+    databaseURL: "https://projekt-kursy.firebaseio.com",
+    projectId: "projekt-kursy",
+    storageBucket: "projekt-kursy.appspot.com",
+    messagingSenderId: "39492072391",
+    appId: "1:39492072391:web:e0ed4ac0d94e02a4069fe2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </body>
+
 </html>
