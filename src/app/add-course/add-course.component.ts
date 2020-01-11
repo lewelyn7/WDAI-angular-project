@@ -38,9 +38,9 @@ export class AddCourseComponent implements OnInit {
     this.course.semester = this.modelForm.value.semester;
     this.course.studentMax = this.modelForm.value.studentMax;
     this.course.type = this.modelForm.value.type;
-
-
     this.add.emit(this.course);
+    this.course = new Course;
+    this.modelForm.reset();
   };
 
 }

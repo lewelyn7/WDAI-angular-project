@@ -5,13 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppCourseComponent } from './app-course/app-course.component';
 import { AppCourseListComponent } from './app-course-list/app-course-list.component';
-import { AngularFireModule } from '@angular/fire';
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CourseFilterComponent } from './course-filter/course-filter.component';
 import { filterPipe } from './app-course-list/filterPipe';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
@@ -21,16 +29,24 @@ import { filterPipe } from './app-course-list/filterPipe';
     UserProfileComponent,
     AddCourseComponent,
     CourseFilterComponent,
-    filterPipe
+    filterPipe,
+    CourseDetailsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //AngularFireModule.initializeApp();
     CoreModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule // imports firebase/auth, only needed for auth features
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
