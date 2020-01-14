@@ -9,7 +9,9 @@ export class CoursesServiceService {
   getCourses(): Course[]{
     return COURSES;
   }
-
+  testingFunc(course: Course, id: number){
+    return (course.id == id);
+  }
   getCourse(id: number){
     return COURSES[id];
   }

@@ -23,12 +23,15 @@ export class AuthservService {
     return user;
   }
   isLoggedIn(): boolean{
+    if(localStorage.getItem('user') !== null){
+      return true;
+    }
     if(this.afAuth.auth.currentUser !== null) return true;
     return false;
   }
   SignOut() {
     return this.afAuth.auth.signOut().then(() => { localStorage.removeItem('user');
-    this.router.navigate(['sign-in']); })
+    this.router.navigate(['/login']); })
   }
 
   SignInUser(email, password) {

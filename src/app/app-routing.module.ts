@@ -9,7 +9,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { SignOutComponent } from './sign-out/sign-out.component';
 
 const routes: Routes = [   
-  { path: 'main', component: AppCourseListComponent,  },
+  { path: 'main', component: AppCourseListComponent,canActivate: [AuthGuard]},
   { path: 'course/:id', component: CourseDetailsComponent },  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
