@@ -8,7 +8,7 @@
             <li>typ: {{ course.type }}</li>
         </ul>
         <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="notify.emit()">usun</button>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="notify.emit()">szczegoly</button>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="courseDetails()">szczegoly</button>
         <fieldset class="rating">
           <ng-container *ngFor="let num of [5, 4, 3, 2, 1]">
               <!-- full star -->

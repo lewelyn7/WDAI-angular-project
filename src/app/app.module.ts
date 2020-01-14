@@ -18,6 +18,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { SignOutComponent } from './sign-out/sign-out.component'
 
 
 
@@ -32,7 +34,8 @@ import { environment } from '../environments/environment';
     filterPipe,
     CourseDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireDatabaseModule
     ],
   providers: [],
   bootstrap: [AppComponent]

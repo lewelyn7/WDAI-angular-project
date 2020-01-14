@@ -1,9 +1,10 @@
 import { Course } from './model/course-model';
 export let COURSES: Course[] = [
     {
-        name: "WDAI Z ROGUSE1a",
+        id: 1,
+        name: "loremloremloemlroemlore",
         ECTSpoints: 3,
-        description: "opisowe nie warto",
+        description: "opisowe ",
         rating: 1.0,
         imageURL: "ssSS",
         semester: "zimowy",
@@ -11,9 +12,10 @@ export let COURSES: Course[] = [
         type: "wyklad"
       },
       {
-        name: "WDAI Z ROGUSEM JS",
+        id: 2,
+        name: "loremloremloremloerm",
         ECTSpoints: 3,
-        description: "Chcesz SIE JavaScriptu i TypeScriptu w 1.5h? Z nami to możliwe po moim wykładzie będziesz w stanie zbudować pełnoprawną aplikację typu syllabus!! (no może po dodatkowych 6h googlania o co chodzi w JS)",
+        description: "lorem ipsum dolor kolor donor mion uon slals",
         rating: 1.0,
         imageURL: "ssSS",
         semester: "zimowy",
@@ -21,6 +23,7 @@ export let COURSES: Course[] = [
         type: "wyklad"
       },
       {
+        id: 3,
         name: "Lorem, ipsum dolor",
         ECTSpoints: 3,
         description: "opisowe nie ",

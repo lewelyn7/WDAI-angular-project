@@ -1,1 +1,25 @@
-<p>course-details works!</p>
+<div class="card">
+    <div class="row">
+        <div class="col-md-6" *ngIf="course">
+
+            <img src={{course.image}} alt="Card image">
+        </div>
+        <div class="col-md-6 cardbody">
+
+            <br><h5 class="title">{{course.name | uppercase}} Szczegóły</h5><br>
+            <p class="text">
+                <span>Nazwa: </span><strong>{{course.name}}</strong><br>
+                <span>ECTS: </span><strong>{{course.ECTSpoints}}</strong><br>
+                <span>Semestr: </span><strong>{{course.semestr}}</strong><br>
+                <span>Rodzaj zajęć: </span><strong>{{course.type}}</strong><br>
+                <span>Dostęna liczba miejsc: </span><strong>{{course.studentMax}}</strong><br>
+                <span>Ocena kursu:</span>
+            </p>
+    
+        </div>
+    </div>
+</div>
+
+<!-- <div>{{course.name}}</div> 
+    <button (click)="onDelete(course)" class="del">x</button>
+    -->
