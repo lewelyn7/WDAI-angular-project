@@ -17,7 +17,7 @@ export class AppCourseComponent implements OnInit {
   
   
   
-  constructor(public router: Router, private auth: AuthservService) { }
+  constructor(public router: Router, public auth: AuthservService) { }
   setReview(num: number){
     
     console.log("course component" + this.course.name)

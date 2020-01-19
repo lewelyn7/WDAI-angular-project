@@ -12,7 +12,7 @@ import { auth } from 'firebase';
 })
 export class CourseDetailsComponent implements OnInit {
   course: Course;
-  constructor(private router: ActivatedRoute, private coursesService: CoursesServiceService, private auth: AuthservService) { }
+  constructor(private router: ActivatedRoute, private coursesService: CoursesServiceService, public auth: AuthservService) { }
   message: string = '';
   btnoff: boolean = false;
   signedUp: boolean = false;

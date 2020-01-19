@@ -12,7 +12,7 @@ import { throws } from 'assert';
 export class RegisterComponent implements OnInit {
   modelForm : FormGroup;
 
-  constructor(private formBuilder : FormBuilder, private auth: AuthservService) { }
+  constructor(private formBuilder : FormBuilder, public  auth: AuthservService) { }
   tryRegister(){
     if(!this.modelForm.valid) return;
     this.auth.SignUpUser(this.modelForm.value.email, this.modelForm.value.password);

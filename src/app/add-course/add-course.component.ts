@@ -5,7 +5,6 @@ import { Output, EventEmitter } from '@angular/core';
 import { Course } from '../model/course-model';
 import { CoursesServiceService } from '../courses-service.service'
 import { AuthservService } from '../authserv.service'
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-add-course',
@@ -19,7 +18,7 @@ export class AddCourseComponent implements OnInit {
 
 
 
-  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, private auth: AuthservService) {
+  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, auth: AuthservService) {
 
     this.modelForm = this.formBuilder.group({
       name: ['', [Validators.required]],

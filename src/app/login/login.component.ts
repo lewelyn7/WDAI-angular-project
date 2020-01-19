@@ -9,7 +9,7 @@ import { AuthservService } from '../authserv.service';
 })
 export class LoginComponent implements OnInit {
   modelForm : FormGroup;
-  constructor(private formBuilder : FormBuilder, private auth: AuthservService) { }
+  constructor(private formBuilder : FormBuilder, public  auth: AuthservService) { }
   tryLogIn(){
     if(!this.modelForm.valid) return;
     

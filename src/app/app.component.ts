@@ -8,7 +8,7 @@ import { AuthservService } from './authserv.service'
 })
 export class AppComponent {
   title = 'projekt-kursy';
-  constructor(private auth: AuthservService){
+  constructor(public auth: AuthservService){
     
   }
   ngOnInit(){
