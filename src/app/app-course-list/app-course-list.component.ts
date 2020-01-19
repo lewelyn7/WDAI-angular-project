@@ -12,7 +12,16 @@ import { filterPipe } from './filterPipe';
 
 export class AppCourseListComponent implements OnInit {
 
-  courseFilter: Course = new Course();
+  courseFilter = {
+    name: '',
+    ratingMin: 0,
+    ratingMax: 0,
+    ECTSpointsMin: 0,
+    ECTSpointsMax: 0,
+    semesterMin: 0,
+    semesterMax: 0,
+    type: ''
+  };
   courses: Course[];
   getCourses(): Course[]{
     this.courses = this.coursesService.getCourses();
@@ -22,10 +31,7 @@ export class AppCourseListComponent implements OnInit {
     this.coursesService.deleteCourse(course);
     this.getCourses();
   }
-  addCourse(course: Course){
-    this.coursesService.addCourse(course);
-    this.getCourses();
-  }
+
   setCourseReview(event){
     console.log("setCourseReview course-list component" + event.course.name);
     event.course.rating = event.num;

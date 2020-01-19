@@ -19,7 +19,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { SignOutComponent } from './sign-out/sign-out.component'
+import { SignOutComponent } from './sign-out/sign-out.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { EditCourseComponent } from './edit-course/edit-course.component'
 
 
 
@@ -35,7 +37,9 @@ import { SignOutComponent } from './sign-out/sign-out.component'
     CourseDetailsComponent,
     RegisterComponent,
     LoginComponent,
-    SignOutComponent
+    SignOutComponent,
+    NotFoundComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,8 @@ import { Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Course } from '../model/course-model'
 import { Router } from '@angular/router'
+import { AuthservService } from '../authserv.service';
+
 @Component({
   selector: 'app-app-course',
   templateUrl: './app-course.component.html',
@@ -15,7 +17,7 @@ export class AppCourseComponent implements OnInit {
   
   
   
-  constructor(public router: Router) { }
+  constructor(public router: Router, private auth: AuthservService) { }
   setReview(num: number){
     
     console.log("course component" + this.course.name)
@@ -23,6 +25,9 @@ export class AppCourseComponent implements OnInit {
   }
   courseDetails(){
     this.router.navigate(['/course', this.course.id])
+  }
+  editCourse(){
+    this.router.navigate(['/edit', this.course.id])    
   }
   ngOnInit() {
   }

@@ -3,25 +3,10 @@
         <h4 class="my-0 font-weight-normal">{{ course.name }}</h4>
     </div>
     <div class="card-body">
-        <h1 class="card-title pricing-card-title">{{ course.description }}<small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-            <li>typ: {{ course.type }}</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="notify.emit()">usun</button>
+        <img src="{{ course.imageURL }}" alt="zdjecie kursu" class="img-thumbnail">
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="notify.emit()" *ngIf="auth.haveRole('admin')">usun</button>
         <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="courseDetails()">szczegoly</button>
-        <fieldset class="rating">
-          <ng-container *ngFor="let num of [5, 4, 3, 2, 1]">
-              <!-- full star -->
-              <input (click)="setReview(num)" 
-                    [id]="'star'+num"
-                    [value]="num"
-                    name="rating" 
-                    type="radio" />
-        
-              <!-- <label class="label-unchecked" [for]="'star'+num" [ngClass]="{'label-checked': (course.rating >= num)}"></label> -->
-              <i class="fa fa-star fa-2x label-unchecked" aria-hidden="true" (click)="setReview(num)" [ngClass]="{'label-checked': (course.rating >= num)}"> </i>
-          </ng-container>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary" (click)="editCourse()"  *ngIf="auth.haveRole('admin')">edytuj</button>
 
-        </fieldset>
     </div>
 </div>

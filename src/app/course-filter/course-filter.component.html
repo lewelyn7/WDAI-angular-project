@@ -1,8 +1,67 @@
-<form [formGroup]="filterForm" (input)="change()">
-    <label>name:</label><input class="form-control" name="name" formControlName="name">
-    <label>rating:</label><input class="form-control" name="rating" formControlName="rating">
-    <label>semester:</label><input class="form-control" name="semester" formControlName="semester">
-    <label>ECTSpoints:</label><input class="form-control" name="ECTSpoints" formControlName="ECTSpoints">
-    <!-- <button type="submit" (click)="addCourse()">Send</button> -->
+<form [formGroup]="filterForm" (input)="change()"  (change)="change()" class="" >
+<div class="form-row">
+    <div class="form-group col">
+         <label class="">name:</label>
+         <input class="form-control" name="name" formControlName="name">
+    </div>
 
+    <div class="form-group col-1">
+            <label class="">Ocena min:</label>
+            <input class="form-control" name="ratingMin" formControlName="ratingMin">
+    </div>
+    <div class="form-group col-1">
+            <label class="">Ocena max:</label>
+            <input class="form-control col" name="ratingMax" formControlName="ratingMax">
+    </div>
+    <div class="form-group col-1">
+            <label class="">semestr min:</label>
+            <input class="form-control col" name="semesterMin" formControlName="semesterMin" type="number" >
+    </div>
+    <div class="form-group col-1">
+            <label class="">semestr max:</label>
+            <input class="form-control col" name="semesterMax" formControlName="semesterMax" type="number">
+    </div>
+    <div class="form-group col-1">
+            <label class="">ECTS min:</label>
+            <input class="form-control col" name="ECTSpointsMin" formControlName="ECTSpointsMin" type="number">
+    </div>
+    <div class="form-group col-1">
+            <label class="">ECTS max:</label>
+            <input class="form-control col" name="ECTSpointsMax" formControlName="ECTSpointsMax" type="number">
+    </div>
+    <div class="form-group col-1">
+            <label class="">typ:</label>
+    
+            <select name="type" formControlName="type" class="form-control col">
+                <option value="">wszystkie</option>
+                <option value="wyklad">wyklad</option>
+                <option value="laboratoria">laboratoria</option>
+            </select>
+        </div>
+</div>
+    
 </form>
+
+
+<!-- </div>
+
+<div class="col">
+    <label class="col-sm-2 col-form-label">semester:</label>
+</div>
+<div class="col">
+        <label class="col-form-label">Ilość ECTS min i max</label>
+             <input class="form-control col" name="ECTSpointsMin" formControlName="ECTSpointsMin" type="number" >
+             <input class="form-control col" name="ECTSpointsMax" formControlName="ECTSpointsMax" type="number" >
+       
+</div>
+
+<div class="col">
+        <label class="col-sm-2 col-form-label">typ:</label>
+
+        <select name="type" formControlName="type" class="form-control col">
+            <option value="">wszystkie</option>
+            <option value="wyklad">wyklad</option>
+            <option value="laboratoria">laboratoria</option>
+        </select>
+    </div>
+</div> -->

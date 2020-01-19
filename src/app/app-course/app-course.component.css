@@ -1,6 +1,11 @@
 body {
     padding-top: 70px;
   }
+
+
+img{
+  max-width: 200px;
+}
   .btn-grey{
       background-color:#D8D8D8;
       color:#FFF;

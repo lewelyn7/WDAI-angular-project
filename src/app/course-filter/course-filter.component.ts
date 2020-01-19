@@ -18,19 +18,35 @@ export class CourseFilterComponent implements OnInit {
   ngOnInit() {
     this.filterForm = this.formBuilder.group({
       name: '',
-      rating: '',
-      ECTSpoints: '',
-      semester: '',
+      ratingMin: 0,
+      ratingMax: 0,
+      ECTSpointsMin: 0,
+      ECTSpointsMax: 0,
+      semesterMin: 0,
+      semesterMax: 0,
       type: ''
     });
   }
   change(){
-    let course = new Course;
+    let course ={
+      name: '',
+      ratingMin: 0,
+      ratingMax: 0,
+      ECTSpointsMin: 0,
+      ECTSpointsMax: 0,
+      semesterMin: 0,
+      semesterMax: 0,
+      type: ''
+    };
     course.name = this.filterForm.value.name;
-    course.rating = this.filterForm.value.rating;
-    course.ECTSpoints = this.filterForm.value.ECTSpoints;
+    course.ratingMin = this.filterForm.value.ratingMin;
+    course.ratingMax = this.filterForm.value.ratingMax;
+    course.ECTSpointsMin = this.filterForm.value.ECTSpointsMin;
+    course.ECTSpointsMax = this.filterForm.value.ECTSpointsMax;
     course.type = this.filterForm.value.type;
-    course.semester = this.filterForm.value.semester;
+    course.semesterMin = this.filterForm.value.semesterMin;
+    course.semesterMax = this.filterForm.value.semesterMax;
+
     this.filterChange.emit(course);
 
 

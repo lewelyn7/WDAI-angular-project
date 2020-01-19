@@ -5,21 +5,37 @@ import { COURSES } from './mock-data';
   providedIn: 'root'
 })
 export class CoursesServiceService {
-
+  maxID: number;
+  courses: Course[];
   getCourses(): Course[]{
-    return COURSES;
+    
+    return this.courses;
+
   }
-  testingFunc(course: Course, id: number){
-    return (course.id == id);
+  testingFunc(element, index, array){
+    return (element.id == this);
   }
   getCourse(id: number){
-    return COURSES[id];
+    return this.courses.find(this.testingFunc, id);
   }
   deleteCourse(course: Course){
-    COURSES.splice(COURSES.indexOf(course), 1);
+    this.courses.splice(this.courses.indexOf(course), 1);
   }
   addCourse(course: Course){
-    COURSES.push(course);
+    this.courses.push(course);
   }
-  constructor() { }
+  getNextID(){
+    this.maxID++;
+    return this.maxID;
+  }
+  constructor() {
+    let max = 0;
+    this.courses = COURSES;
+    this.courses.forEach(elem => {
+      if(elem.id > max){
+        max = elem.id;
+      }
+    })
+    this.maxID = max;
+   }
 }

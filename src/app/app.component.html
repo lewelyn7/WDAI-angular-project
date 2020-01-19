@@ -4,47 +4,20 @@
       <!-- <a class="p-2 text-dark"routerLink="/login" routerLinkActive="active">Zaloguj</a> -->
       <!-- <a class="p-2 text-dark" routerLink="/register" routerLinkActive="active">Zarejestruj</a> -->
     </nav>
-    <a class="p-2 btn btn-outline-primary" routerLink="/register" routerLinkActive="active">Zarejestruj</a>
-    <a class="p-2 btn btn-outline-primary" routerLink="/login" routerLinkActive="active">Zaloguj</a>
-    <a class="p-2 btn btn-outline-primary" routerLink="/signout" routerLinkActive="active">Wyloguj</a>
+    <p class="p-2 h5"> Zalogowano jako: <br/> {{ (auth.CurrentUser()).email  }}</p>
+    <a class="btn btn-outline-primary p-2 m-1" routerLink="/add" routerLinkActive="active" *ngIf="auth.haveRole('admin')">dodaj</a>
+    <a class="btn btn-outline-primary p-2 m-1" routerLink="/register" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Zarejestruj</a>
+    <a class="btn btn-outline-primary p-2 m-1" routerLink="/login" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Zaloguj</a>
+    <a class="btn btn-outline-primary p-2 m-1" routerLink="/courses" routerLinkActive="active" *ngIf="auth.isLoggedIn()">Lista Kursów</a>
+    <a class="btn btn-outline-primary p-2 m-1" routerLink="/signout" routerLinkActive="active" *ngIf="auth.isLoggedIn()">Wyloguj</a>
   </div>
 
   <router-outlet></router-outlet>
 
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <footer class="pt-4 mt-md-5 pt-md-5 border-top">
       <div class="row">
-        <div class="col-12 col-md">
-          <img class="mb-2" src="Pricing%20example%20for%20Bootstrap_files/bootstrap-solid.svg" alt="" width="24" height="24">
-          <small class="d-block mb-3 text-muted">© 2017-2018</small>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Features</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Cool stuff</a></li>
-            <li><a class="text-muted" href="#">Random feature</a></li>
-            <li><a class="text-muted" href="#">Team feature</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Another one</a></li>
-            <li><a class="text-muted" href="#">Last time</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-            <li><a class="text-muted" href="#">Another resource</a></li>
-            <li><a class="text-muted" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Team</a></li>
-            <li><a class="text-muted" href="#">Locations</a></li>
-            <li><a class="text-muted" href="#">Privacy</a></li>
-            <li><a class="text-muted" href="#">Terms</a></li>
-          </ul>
+        <div class="col-12">
+            <h6 class="col">Karol Hamielec ©</h6>
         </div>
       </div>
     </footer>

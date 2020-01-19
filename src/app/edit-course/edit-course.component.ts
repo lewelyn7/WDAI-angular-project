@@ -5,41 +5,40 @@ import { Output, EventEmitter } from '@angular/core';
 import { Course } from '../model/course-model';
 import { CoursesServiceService } from '../courses-service.service'
 import { AuthservService } from '../authserv.service'
-import { runInThisContext } from 'vm';
-
+import { Router } from '@angular/router'
 @Component({
-  selector: 'app-add-course',
-  templateUrl: './add-course.component.html',
-  styleUrls: ['./add-course.component.css']
+  selector: 'app-edit-course',
+  templateUrl: './edit-course.component.html',
+  styleUrls: ['./edit-course.component.css']
 })
-export class AddCourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit {
   modelForm : FormGroup;
   course: Course;
   message: string = '';
 
 
-
-  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, private auth: AuthservService) {
+  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, private auth: AuthservService, private router: Router) {
+    this.course = this.coursesService.getCourse(2)
 
     this.modelForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      imageURL: ['', [Validators.required]],
-      semester: ['', [Validators.required]],
-      studentMax: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
-      type: '',
-      ECTSpoints: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
+      name: [this.course.name, [Validators.required]],
+      description: [this.course.description, [Validators.required]],
+      imageURL: [this.course.imageURL, [Validators.required]],
+      semester: [this.course.semester, [Validators.required]],
+      studentMax: [this.course.studentMax, [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
+      type: this.course.type,
+      ECTSpoints: [this.course.ECTSpoints, [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
     });
    }
 
-  ngOnInit() {
 
+  ngOnInit() {
   }
-  addCourse(){
+
+  editCourse(){
     if(!this.modelForm.valid){
       return;
     }
-    this.course = new Course(this.coursesService.getNextID());
     this.course.name = this.modelForm.value.name;
     this.course.description = this.modelForm.value.description;
     this.course.rating = this.modelForm.value.rating;
@@ -49,10 +48,7 @@ export class AddCourseComponent implements OnInit {
     this.course.type = this.modelForm.value.type;
     this.course.ECTSpoints = this.modelForm.value.ECTSpoints;
     this.course.votes = [];
-    this.modelForm.reset();
-    this.coursesService.addCourse(this.course);
-    this.message = "Kurs został dodany";
-
+    this.message = "Kurs został zeedytowany";
   };
 
 }

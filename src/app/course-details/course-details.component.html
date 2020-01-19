@@ -1,21 +1,37 @@
-<div class="card">
+<div class="container">
     <div class="row">
-        <div class="col-md-6" *ngIf="course">
+        <div class="col-md-6 d-flex align-items-center" *ngIf="course">
 
-            <img src={{course.image}} alt="Card image">
+            <img src={{course.imageURL}} alt="zdjecie kursu" class="img-thumbnail img-fluid ">
         </div>
-        <div class="col-md-6 cardbody">
+        <div class="col-md-6">
 
-            <br><h5 class="title">{{course.name | uppercase}} Szczegóły</h5><br>
+            <br><h5 class="title">{{course.name | uppercase}}</h5><br>
             <p class="text">
                 <span>Nazwa: </span><strong>{{course.name}}</strong><br>
+                <span>Opis: </span><strong>{{course.description }}</strong><br>
                 <span>ECTS: </span><strong>{{course.ECTSpoints}}</strong><br>
                 <span>Semestr: </span><strong>{{course.semestr}}</strong><br>
                 <span>Rodzaj zajęć: </span><strong>{{course.type}}</strong><br>
                 <span>Dostęna liczba miejsc: </span><strong>{{course.studentMax}}</strong><br>
-                <span>Ocena kursu:</span>
+
+                <span>Ocena kursu:</span> {{ course.rating | number}}
             </p>
-    
+            <fieldset class="rating p-2 m-2">
+                    <ng-container *ngFor="let num of [5, 4, 3, 2, 1]">
+                        <!-- full star -->
+                        <input (click)="setReview(num)" 
+                              [id]="'star'+num"
+                              [value]="num"
+                              name="rating" 
+                              type="radio" />
+                  
+                        <!-- <label class="label-unchecked" [for]="'star'+num" [ngClass]="{'label-checked': (course.rating >= num)}"></label> -->
+                        <i class="fa fa-star fa-2x label-unchecked" aria-hidden="true" (click)="setReview(num)" [ngClass]="{'label-checked': (course.rating >= num)}"> </i>
+                    </ng-container>
+          
+            </fieldset>
+            <button type="button m-2" class="btn btn-block btn-lg" [class.disabled]="btnoff" [class.btn-secondary]="btnoff" [class.btn-success]="!btnoff" role="button" (click)="signUpForCourse()">Zapisz się!</button>
         </div>
     </div>
 </div>

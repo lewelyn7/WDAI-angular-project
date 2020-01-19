@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthservService } from './authserv.service'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projekt-kursy';
+  constructor(private auth: AuthservService){
+    
+  }
+  ngOnInit(){
+  }
+
 }

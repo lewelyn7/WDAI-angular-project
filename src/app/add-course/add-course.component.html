@@ -1,12 +1,62 @@
-<form [formGroup]="modelForm">
-    <label>name:</label><input class="form-control" name="name" formControlName="name">
-    <label>description:</label><input class="form-control" name="description" formControlName="description">
-    <label>rating:</label><input class="form-control"  name="rating" formControlName="rating">
-    <label>imageURL:</label><input class="form-control"  name="imageURL" formControlName="imageURL">
-    <label>semester:</label><input class="form-control"  name="semester" formControlName="semester">
-    <label>studentMax:</label><input class="form-control"  name="studentMax" formControlName="studentMax">
-    <label>type:</label><input class="form-control"  name="type" formControlName="type">
+ <div class="container">
+ <form [formGroup]="modelForm">
+        <div class="alert alert-success" *ngIf="(message !== '')">
+                {{ message }}
+        </div>  
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">nazwa:</label>
+            <input class="col-sm-9 form-control" formControlName="name" id="name" 
+            [class.is-invalid]="modelForm.controls.name.invalid && (modelForm.controls.name.dirty || modelForm.controls.name.touched)"
+            [class.is-valid]="modelForm.controls.name.valid && modelForm.controls.name.touched"/>
 
-    <button type="submit" (click)="addCourse()">Send</button>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">opis:</label>
+            <input class="col-sm-9 form-control" name="description" formControlName="description"
+            [class.is-invalid]="modelForm.controls.description.invalid && (modelForm.controls.description.dirty || modelForm.controls.description.touched)"
+            [class.is-valid]="modelForm.controls.description.valid && modelForm.controls.description.touched"/>
+        </div>
+        <!-- <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">rating:</label>
+            <input class="col-sm-9 form-control" name="rating" formControlName="rating">
 
-</form>
+        </div> -->
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">imageURL:</label>
+            <input class="col-sm-9 form-control" name="imageURL" formControlName="imageURL"
+            [class.is-invalid]="modelForm.controls.imageURL.invalid && (modelForm.controls.imageURL.dirty || modelForm.controls.imageURL.touched)"
+            [class.is-valid]="modelForm.controls.imageURL.valid && modelForm.controls.imageURL.touched"/>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">semestr:</label>
+            <input class="col-sm-9 form-control" name="semester" formControlName="semester"
+            [class.is-invalid]="modelForm.controls.semester.invalid && (modelForm.controls.semester.dirty || modelForm.controls.semester.touched)"
+            [class.is-valid]="modelForm.controls.semester.valid && modelForm.controls.semester.touched"/>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">Ilość wolnych miejsc:</label>
+            <input class="col-sm-3 form-control" name="studentMax" formControlName="studentMax"
+            [class.is-invalid]="modelForm.controls.studentMax.invalid && (modelForm.controls.studentMax.dirty || modelForm.controls.studentMax.touched)"
+            [class.is-valid]="modelForm.controls.studentMax.valid && modelForm.controls.studentMax.touched"/>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label-lg">typ:</label>
+            <!-- <input class="col-sm-9 form-control" name="type" formControlName="type"> -->
+            <select name="type" class="form-control col-sm-3"  formControlName="type">
+                <option value="wyklad">wyklad</option>
+                <option value="laboratoria">laboratoria</option>
+            </select>
+        </div>
+        <div class="form-group row">
+                <label class="col-sm-3 col-form-label-lg">Ilość punktów ECTS:</label>
+                <input class="col-sm-3 form-control" name="ECTSpoints" formControlName="ECTSpoints"
+                [class.is-invalid]="modelForm.controls.ECTSpoints.invalid && (modelForm.controls.ECTSpoints.dirty || modelForm.controls.ECTSpoints.touched)"
+                [class.is-valid]="modelForm.controls.ECTSpoints.valid && modelForm.controls.ECTSpoints.touched"/>
+        </div>
+        <div class="form-group row d-flex justify-content-center">
+            <button type="submit" (click)="addCourse()" class="btn btn-primary ">Dodaj</button>
+        </div>
+    </form>
+</div>
