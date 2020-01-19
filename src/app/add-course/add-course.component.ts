@@ -23,7 +23,7 @@ export class AddCourseComponent implements OnInit {
     this.modelForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      imageURL: ['', [Validators.required]],
+      imageURL: ['https://via.placeholder.com/200', [Validators.required]],
       semester: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       studentMax: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       type: '',
