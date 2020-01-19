@@ -24,7 +24,7 @@ export class AddCourseComponent implements OnInit {
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       imageURL: ['', [Validators.required]],
-      semester: ['', [Validators.required]],
+      semester: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       studentMax: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       type: '',
       ECTSpoints: ['', [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],

@@ -5,7 +5,7 @@ import { Output, EventEmitter } from '@angular/core';
 import { Course } from '../model/course-model';
 import { CoursesServiceService } from '../courses-service.service'
 import { AuthservService } from '../authserv.service'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
@@ -17,14 +17,14 @@ export class EditCourseComponent implements OnInit {
   message: string = '';
 
 
-  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, private auth: AuthservService, private router: Router) {
-    this.course = this.coursesService.getCourse(2)
+  constructor(private formBuilder : FormBuilder, private coursesService: CoursesServiceService, private auth: AuthservService, private router: ActivatedRoute) {
+    this.course = this.coursesService.getCourse(+this.router.snapshot.url[1].path)
 
     this.modelForm = this.formBuilder.group({
       name: [this.course.name, [Validators.required]],
       description: [this.course.description, [Validators.required]],
       imageURL: [this.course.imageURL, [Validators.required]],
-      semester: [this.course.semester, [Validators.required]],
+      semester: [this.course.semester, [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       studentMax: [this.course.studentMax, [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
       type: this.course.type,
       ECTSpoints: [this.course.ECTSpoints, [Validators.required, Validators.min(0), Validators.pattern('[0-9]*')]],
